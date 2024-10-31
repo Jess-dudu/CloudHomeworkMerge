@@ -1,2 +1,2 @@
-document.writeln("<h1>Hello world</h1>");
+document.writeln("<h1>Hello world with update</h1>");
 
