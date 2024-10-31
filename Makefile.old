@@ -1,8 +1,8 @@
-app_name = flask_gunicorn_app
+app_name = flask_app
 build:
-	@docker build -t $(app_name) .
+	docker build -t flask_app .
 run:
-	docker run --detach -p 80:8000 $(app_name)
+	docker run -p 80:8000 -v $(pwd):/app flask_app
 kill:
 	@echo 'Killing container...'
 	@docker ps | grep $(app_name) | awk '{print $$1}' | xargs docker stop
