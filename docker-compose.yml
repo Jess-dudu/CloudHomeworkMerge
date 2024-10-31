@@ -1,7 +1,12 @@
 version: '3.4'
 services:
   app:
-    build: .
+    build:
+      context: .
+      args:
+        UID: ${HOST_UID}
+        GID: ${HOST_GID}
+    image: homework-merge
     container_name: homework-merge
     command: 'gunicorn --bind 0.0.0.0:8000 app:application --reload'
     ports:
